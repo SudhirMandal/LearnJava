@@ -12,3 +12,148 @@
 ----After completing all method execution(calls) the stack becomes empty and JVM will destroy the corresponding Stack and the program will terminate normally.
 
 4. Default exception Handling?
+----In our java program inside a method If an Exception raised, then that method is responsible to create an Exception object by including
+---- the following information
+---------Name of exception
+---------Description of Exception
+---------Location of Exception
+----After creating an exception, method handovers that object to JVM
+----JVM will check whether corresponding method contains any exception handling code or not.
+----If the method doesn't contain any exception handling code, then JVM will terminate the program abnormally and removes corresponding entry from the stack.
+----This process will be continued till main.
+----If the main also doesn't  contain exception handling then JVM terminates main method abnormally and removes corresponding entry from the stack.
+----Then JVM handovers the responsibility of exception handling to DefaultExceptionHandler, which is the part of JVM.
+----Default Exception Handler Just Terminates the Program Abnormally and Prints Exception Information to the Console in the following Format.
+----Exception in thread: “Xxx” Name of the Exception: Description
+----Stack Trace
+
+
+5. Exception Hierarchy?
+Throwable- 1. Exception--- Most of the Cases Exceptions are Caused by Our Program and these are Re-Coverable.
+           2. Error--------Most of the Cases Errors are Not Caused by Our Program and these are Due to Lack of System Resources.Errors are Non- Recoverable.
+           
+           
+Checked Vs Unchecked Exception:
+Checked Exceptions:
+-> The Exceptions which are Checked by the Compiler for Smooth Execution of theProgram at Runtime are Called Checked Exceptions.
+-> Compiler Checks whether we are handling Checked Exceptions OR Not. If we are Not handling then we will get Compile Time Error.
+-> Eg:FileNotFoundException, Etc.
+Unchecked Exceptions:
+-> The Exceptions which are Not Checked by the Compiler are Called Unchecked Exception.
+-> Compiler won't Check whether we are Handle OR Not Unchecked Exceptions.
+-> Eg: ArithmeticException, NullPointerException, BombBlostException, Etc.
+-> Note:
+-> Whether the Exception is Checked OR Unchecked Compulsory it will Occur at Runtime Only. There is No Chance of occurring any Exception at Compile Time.
+
+
+-> Runtime Exceptions and its Child Classes, Errors and its Child Classes are Unchecked Exceptions Except these all remaining are Considered as Checked Exceptions.
+
+
+Note:
+-> If try with Multiple catch Blocks Present then the Order of catch Blocks are Very
+Important. It should be from Child to Parent.
+-> By Mistake if we are trying to Take Parent to Child then we will get Compile Time
+Error Saying: exception XXX has already been caught.
+
+finally Block
+ It is Never Recommended to Define Clean-up Code Inside try Block. Because there
+is No Guaranty for the Execution of Every Statement Inside try Block.
+ It is Never Recommended to Define Clean-up Code Inside catch Block. Because if
+there is No Exception then catch Block won't be executed.
+ Hence we required Some Place to Maintain Clean-up Code which should be
+executed Always irrespective of whether Exception raised OR Not raised and
+whether Handled OR Not Handled. Such Type of Best Place is Nothing but finally
+Block.
+ Hence the Main Objective of finally Block is to Maintain Clean-up Code.
+
+ The Specialty of finally Block is it will be executed Always irrespective of whether
+Exception raised OR Not raised and whether Exception Handled OR Not Handled.
+
+
+
+finally Vs return:
+If return Statement Present Inside try OR catch Blocks 1st finally will be executed and
+after that Only return Statement will be Considered i.e. finally Block Dominates return
+Statement.
+
+If try-catch-finally Blocks having return Statements then finally Block return Statement
+will be Considered i.e. finally Block return Statement has More Priority than try and
+catch Block return Statements.
+
+
+finally Vs System.exit(0):
+There is Only One Situation where the finally Block won't be executed that is
+whenever we are System.exit(0).
+Whenever we are using System.exit(0) then JVM itself will be Shutdown and hence
+finally Block won't be executed. That is System.exit(0) Dominates finally Block.
+
+System.exit(0);
+☀ We can Use this Method to Exit (Shut Down) the System (JVM) Programmatically.
+☀ The Argument Represents as Status Code.
+☀ Instead of 0 we can Pass any Valid int Value.
+☀ 0 Means Normal Termination, Non- Zero Means Abnormal Termination.
+☀ So this status code internally used by JVM.
+
+
+☀ Whether it is 0 OR Non- Zero Effect is Same in Our Program but this Number
+Internally used by JVM.
+Difference between final, finally and finalize
+final:
+ final is a Modifier is Applicable for Classes, Methods and Variables.
+ If a Class declared as final then we can't Create Child Class. That is Inheritance is
+Not Possible for final Classes.
+ If a Method declared as final then we can't Override that Method in Child Classes.
+ If a Variable declared as final then we can't Perform Re- Assignment for that
+Variable.
+finally:
+ finally is a Block Always associated with try-catch to Maintain Clean Up Code.
+ The Specialty of finally Block is it will be executed Always Irrespective of whether
+Exception raised OR Not and whether Handled OR Not Handled.
+finalize():
+ finalize() is a Method Always Called by the Garbage Collector Just before Destroying
+an Object to Perform Clean Up Activities.
+ Once finalize() Completes Automatically Garbage Collector Destroys that Object.
+Note:
+ finally() is Responsible to Perform Object Level Clean-Up Activities whereas finally
+Block is Responsible to Perform try Block Level Clean-Up Activities i.e. whatever
+Resources we Opened at the Time of try Block will be Closed Inside finally Block
+ It is Highly Recommended to Use finally Block than finalize()because we can't
+Expect Exact Behavior of Garbage Collector. It is JVM Vendor Dependent.
+
+throw Keyword:
+ Sometimes we can Create Exception Object Explicitly and we can Handover Our
+Created Exception Object to the JVM Manually. For this we have to Use throw key
+Word.
+Eg:
+
+ In General we can Use throw Key Word for Customized Exceptions but Not for
+pre-defined Exceptions.
+The Result of following 2 Programs is Exactly Same.
+
+throws Key Word
+In Our Program if there is any Chance of raising Checked Exception then Compulsory
+we should Handled that Checked Exception Otherwise we will get Compile Time Error
+Saying unreported exception XXX; must be caught or declared to be thrown.
+
+ We can use throws Key Word to Delegate the Responsibility of Exception Handling
+to the Caller Method (It May be Another Method OR JVM). Then Caller is
+Responsible to Handle that Checked Exception.
+ throws Key Word required Only for Checked Exceptions.
+ Usage of throws Key Word for Unchecked Exceptions there is No Use.
+ throws Key Word required Only to Convince Compiler and it doesn’t Prevent
+Abnormal Termination of the Program.
+ Hence Recommended to Use try- catch- finally Over throws Key Word.
+
+Summary of Exception Handling Key Words
+1) try  To Maintain Risky Code
+2) catch  To Maintain Handling Code
+3) finally  To Maintain Clean Up Code
+4) throw  To Hand-Over Our Created Exception Object to the JVM Manually
+5) throws  To Delegate Responsibility of Exception Handling to the Caller Method
+
+NoClassDefFoundError:
+ It is the Child Class of Error and Hence it is Unchecked.
+ Raised Automatically by the JVM whenever JVM Unable to find required .class File.
+AssertionError:
+It is the Child Class of Error and Hence it is Unchecked.
+Raised Explecitly to Indicate that assert Statement Fails.
