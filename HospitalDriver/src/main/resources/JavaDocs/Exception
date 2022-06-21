@@ -1,2 +1,14 @@
-What is exception?
-An unwanted or unexpected event that disturbs the normal flow of program.
+1. What is exception?
+----An unwanted or unexpected event that disturbs the normal flow of program.
+
+2. What is Exception Handling
+----Alternate way to continue rest of the program normally.
+
+3. Runtime Stack Mechanism?
+----For every thread JVM will create a Runtime Stack.
+----Every method call performed by that thread will be stored in the corresponding Stack.
+----Each entry in the Stack is called Activation Record or Stack Frame.
+----After completing every method execution JVM removes the corresponding Entry from the Stack.
+----After completing all method execution(calls) the stack becomes empty and JVM will destroy the corresponding Stack and the program will terminate normally.
+
+4. Default exception Handling?
