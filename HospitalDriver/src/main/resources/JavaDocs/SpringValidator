@@ -1,0 +1,5 @@
+@InitBinder
+public void initBinder(WebDataBinder dataBinder) {
+StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+binder.registerCustomBinder(String.class, stringTrimmerEditor);
+}
