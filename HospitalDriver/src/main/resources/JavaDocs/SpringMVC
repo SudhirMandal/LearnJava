@@ -1,0 +1,48 @@
+Steps:
+1. add configurations to file : WEB-INF/Web.xml
+1.1 Configure Spring MVC Dispatcher Servlet.
+1.2 Set up URL mappings to Spring MVC Dispatcher Servlet.
+2. add configurations to file WEB-INF/Spring-mvc-demo-servlet.xm
+2.1 add support for component scanning.
+2.2.add suport for conversion, formatting and validation.
+2.3 configure Spring MVC View Resolver.
+
+
+
+web.xml
+
+<web-app>
+<servlet>
+<servlet-name>dispatcher</servlet-name>
+<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+<init-param>
+<param-name>contextConfiguration</param-name>
+<param-value>/WEB-INF/spring-mvc-demo-servlet.xml</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+<servlet-name>dispatcher</servlet-name>
+<url-pattern>/</url-pattern>
+</servlet-mapping>
+</web-app>  
+
+
+
+spring-mvc-demo-servlet.xml
+
+<beans>
+<context:component-scan base-package =""/>
+<mvc:annotation-driven/>
+
+<bean class ="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name = "prefix" value ="/WEB-INF/view/" />
+<property name ="suffix" value=".jsp"/>
+</bean>
+</beans>
+</beans>
+
+
+
+
+
