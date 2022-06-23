@@ -1,0 +1,47 @@
+@Controller
+public class HelloWorldController {
+
+//need a controller method to show the initial HTML form
+@RequestMapping("showForm")
+public String showForm() {
+ return "hellowworld-form";//(/WEB-INF/view/hellowworld-form.jsp)
+}
+
+
+//need a controller method to process the html form.
+@RequestMapping("processForm")
+public String processForm() {
+return "hellowworld";
+} 
+
+}
+
+
+helloworld-form.jsp
+<html>
+<head>
+<titile>Hello World Input Form</title>
+</head>
+<body>
+<form action="processForm" method="GET">
+<input type= "text" name="studentName" placeholder="what's your name"/>
+<input type="submit"/>
+</form>
+</body>
+</html>
+
+
+
+helloworld.jsp
+
+<html>
+<head>
+<titile>Hello World</title>
+</head>
+<body>
+Hello World of String!
+<br/>
+<br/>
+Student name: ${param.studentName}
+</body>
+</html>
