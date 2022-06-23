@@ -1,0 +1,11 @@
+spring-mvc-demo-servlet.xml
+.
+.
+.
+.
+.
+<bean id ="messageSource" class ="org.springframework.context.support.ResourceBundleMessageSource>
+
+<propert name="basenames" value="resources/messages"/> // loades resources/messages.properties/>
+</bean>
+
