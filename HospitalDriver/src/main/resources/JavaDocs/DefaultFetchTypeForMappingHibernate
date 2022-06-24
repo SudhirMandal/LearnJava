@@ -1,0 +1,4 @@
+onetoone-----eager
+onetomany ----lazy
+manytoone-----eager
+manytomany-----lazy
