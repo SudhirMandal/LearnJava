@@ -1,0 +1,50 @@
+Development process
+step 1: create custom validation rule.
+step 2: Add validation rule to the Customer class.
+step 3: Display error messages on HTML form
+step 4: update confirmation page.
+
+
+Create Custom Validation Rule::::
+a. Create @CourseCode (custom)annotation.
+b. Create CourseCodeConstraintValidator.//Helper class contains our custom business logic for validation.
+
+
+@Constraint(validatedBy = CourseCodeConstraintValidator.class)
+@Target({ElementType.METHOD, ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+public @Interface CourseCode {
+
+public String value() default ="LUV";
+
+public String message() default "must start with LUV";
+
+}
+
+public class CourseCodeConstraintValidator implements ConstraintValidator<CourseCode, String> {
+ 
+ private String coursePrefix;
+ 
+ @Override
+ public void initialize(CourseCode theCourseCode) {
+ coursePrefix=theCourseCode.value();
+ 
+ 
+ @override
+ public boolean isValid(String theCode, ConstraintValidatorContext theConstraintValidatorContext) {
+ boolean result;
+ 
+ if(theCode!=null){
+ result = theCode.startsWith(coursePrefix);
+ }else{ return false;}
+ 
+ return result;
+}
+
+
+}
+
+
+
+
+

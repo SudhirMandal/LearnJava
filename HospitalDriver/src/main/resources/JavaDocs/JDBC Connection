@@ -1,0 +1,13 @@
+ String jdbcURL = "jdbc:mysql://localhost:3306/schema?useSSL=false";
+ String password = "password";
+ String username = "username";
+ 
+ try{
+ 
+ Connection connection = DriverManager.getConnection(jdbcURL,username,password);
+ 
+ 
+ }catch(){
+ 
+ 
+ }
