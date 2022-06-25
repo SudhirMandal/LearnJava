@@ -1,0 +1,2 @@
+Thread.join()-> allows a thread to wait for another thread.
+t1.join() will allow to execute t1 first

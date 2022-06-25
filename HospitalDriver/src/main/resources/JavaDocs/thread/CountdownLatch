@@ -1,0 +1,1 @@
+CountDownLatch is used to await for worker thread to complete. 

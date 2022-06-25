@@ -1,0 +1,1 @@
+Path path = Paths.get(Thread.currentThread().getContextClassLoader().getResource(fullFileName).toURI());

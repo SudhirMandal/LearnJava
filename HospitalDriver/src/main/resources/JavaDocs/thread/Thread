@@ -1,0 +1,5 @@
+What is thread?
+
+path of execution to carry set of instructions tothe cores or processors
+
+Time intensive task can block main thread.
