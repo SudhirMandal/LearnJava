@@ -1,0 +1,22 @@
+1.New
+2.Runnable
+2.1.Ready
+2.2Running
+3.Timed waiting
+4.Waiting
+5.Blocked
+6.Terminated
+
+
+new: create a thread(created but not started)
+Runnable: when start a thread
+Ready: When you start a thread it comes to a ready state, and waits for cpu once cpu is allocated it comes to running state.
+Yeald(): it reverses the state of thread from running to a ready state. It passes control to another thread that is waiting for cpu.
+
+Blocked: A thread is blocked if it is waiting for a monitor lock is in this state.
+
+
+Waiting: A thread that is waiting indefinitely for another thread to perform a particular action is in this state.(wait(), join()).
+
+Terminated: A thread that has exited i.e. it has either completed its task or terminated in the middle of the execution.
+
