@@ -19,6 +19,7 @@ run a class of jar file
 
 java -cp target/project-name.jar package.ClassName
 java -cp target/hellomaven-1.0-SNAPSHOT.jar com.sudhir.App
+java -cp myJar.jar HelloJava
 
 generate jar
 
