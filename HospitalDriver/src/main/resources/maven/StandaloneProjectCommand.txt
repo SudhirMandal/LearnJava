@@ -18,3 +18,11 @@ mvn install-> compiling running test class and packaging
 run a class of jar file
 
 java -cp target/project-name.jar package.ClassName
+java -cp target/hellomaven-1.0-SNAPSHOT.jar com.sudhir.App
+
+generate jar
+
+jar cf myJar.jar myClass.class// muclass can be com.classes.*
+jar cf JarExample.jar target/classes/com/sudhir/*.class
+
+jar cfe JarExample.jar com.baeldung.jar.JarExample com/baeldung/jar/*.class
