@@ -9,3 +9,12 @@ Specify source and target of compiler
 <maven.compiler.target>1.8</maven.compiler.target>
 
 </properties>
+
+
+
+mvn install-> compiling running test class and packaging   
+
+
+run a class of jar file
+
+java -cp target/project-name.jar package.ClassName
